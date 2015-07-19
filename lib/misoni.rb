@@ -1,5 +1,6 @@
 require "misoni/version"
+require "misoni/cli"
 
 module Misoni
-  # Your code goes here...
+
 end
