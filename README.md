@@ -1,36 +1,54 @@
 # Misoni
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/misoni`. To experiment with that code, run `bin/console` for an interactive prompt.
+Magical login to the Zokei Network.
 
-TODO: Delete this and the text above, and describe your gem
+「ZOKEIネットワーク接続のための認証が必要です」を二度と見ないことを目的としたプロジェクトです。鯖の味噌煮。
+
 
 ## Installation
 
-Add this line to your application's Gemfile:
-
-```ruby
-gem 'misoni'
+```
+$ git clone https://github.com/noir-neo/misoni
+$ cd misoni
+$ bundle install --path vendor/bundle
 ```
 
-And then execute:
+あとでちゃんと`gem install`でできるようにします。
 
-    $ bundle
 
-Or install it yourself as:
+## Configuration
 
-    $ gem install misoni
+```
+$ bundle exec bin/misoni config
+```
+
+をするとエディタが開くので
+
+```
+id: a学籍番号
+password: パスワード(デフォルトだと生年月日のやつ)
+```
+
+のように編集してください。
+
 
 ## Usage
 
-TODO: Write usage instructions here
+```
+$ bundle exec bin/misoni auth
+```
 
-## Development
+とかするといい感じです。  
+`install`コマンドとかで、無線LANへの接続を検知してlaunchdで叩く設定まで勝手にやってくれるようにそのうちします。
 
-After checking out the repo, run `bin/setup` to install dependencies. You can also run `bin/console` for an interactive prompt that will allow you to experiment. Run `bundle exec misoni` to use the gem in this directory, ignoring other installed copies of this gem.
 
-To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and tags, and push the `.gem` file to [rubygems.org](https://rubygems.org).
+## Kanpa
 
-## Contributing
+http://www.amazon.co.jp/registry/wishlist/23CDAA2HM4C5B/ref=cm_sw_r_tw_ws_vs6Qvb018NET6
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/misoni.
 
+## License
+
+The MIT License (MIT)
+
+Copyright (c) 2015 neo
