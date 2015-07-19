@@ -44,8 +44,7 @@ $ bundle exec bin/misoni auth
 
 ## Kanpa
 
-http://www.amazon.co.jp/registry/wishlist/23CDAA2HM4C5B/ref=cm_sw_r_tw_ws_vs6Qvb018NET6
-
+http://www.amazon.co.jp/registry/wishlist/23CDAA2HM4C5B
 
 ## License
 
