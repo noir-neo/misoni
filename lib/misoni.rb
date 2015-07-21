@@ -15,7 +15,7 @@ module Misoni
   def self.putsResult(page)
     body = Nokogiri::HTML(page.body)
     body.css('table tr:nth-child(2) td').each do |child|
-      p child.text
+      puts child.text.include?("成功") ? "Succeeded" : "Failed"
     end
   end
   
