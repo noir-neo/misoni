@@ -20,8 +20,8 @@ module Misoni
       agent.get('http://auth.zokei.ac.jp:16978/') do |page|
         login_result = page.form_with(:action => '/cgi-bin/adeflogin.cgi') do |form|
           config = Pit.get("http://auth.zokei.ac.jp:16978")
-          form.field_with(:name => 'name').value = config.id
-          form.field_with(:name => 'pass').value = config.password
+          form.field_with(:name => 'name').value = config["id"]
+          form.field_with(:name => 'pass').value = config["password"]
         end.submit
 
         html = Nokogiri::HTML(login_result.body)
