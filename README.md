@@ -1,5 +1,7 @@
 # Misoni
 
+[![Gem Version](https://badge.fury.io/rb/misoni.svg)](http://badge.fury.io/rb/misoni)
+
 Magical login to the Zokei Network.
 
 「ZOKEIネットワーク接続のための認証が必要です」を二度と見ないことを目的としたプロジェクトです。鯖の味噌煮。
@@ -8,23 +10,26 @@ Magical login to the Zokei Network.
 ## Installation
 
 ```
-$ git clone https://github.com/noir-neo/misoni
-$ cd misoni
-$ bundle install --path vendor/bundle
+$ gem install misoni
 ```
-
-あとでちゃんと`gem install`でできるようにします。
 
 
 ## Configuration
 
 ```
-$ bundle exec bin/misoni config
+$ misoni config
 ```
 
-をするとエディタが開くので
+もしくは pit コマンドを直接
 
 ```
+$ pit set "http://auth.zokei.ac.jp:16978"
+```
+
+するとエディタが開くので
+
+```
+---
 id: a学籍番号
 password: パスワード(デフォルトだと生年月日のやつ)
 ```
@@ -32,13 +37,15 @@ password: パスワード(デフォルトだと生年月日のやつ)
 のように編集してください。
 
 
+
 ## Usage
 
 ```
-$ bundle exec bin/misoni auth
+$ misoni auth
 ```
 
-とかするといい感じです。  
+すると設定したアカウントで認証します。
+
 `install`コマンドとかで、無線LANへの接続を検知してlaunchdで叩く設定まで勝手にやってくれるようにそのうちします。
 
 
