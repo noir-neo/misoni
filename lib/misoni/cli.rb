@@ -1,8 +1,7 @@
 # coding: utf-8
 
-require 'thor'
-require 'io/console'
 require 'misoni'
+require 'thor'
 
 module Misoni
   class CLI < Thor
