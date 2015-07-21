@@ -11,6 +11,7 @@ module Misoni
   def self.getConfig
     Pit.get("http://auth.zokei.ac.jp:16978", :require => { "id"=> "YOUR_UserID", "password"=> "YOUR_PASSWORD" })
   end
+  
   def self.auth
     agent = Mechanize.new { |agent|
       agent.user_agent_alias = 'Mac Safari'
@@ -19,7 +20,7 @@ module Misoni
     begin
       agent.get('http://auth.zokei.ac.jp:16978/') do |page|
         login_result = page.form_with(:action => '/cgi-bin/adeflogin.cgi') do |form|
-          config = Pit.get("http://auth.zokei.ac.jp:16978")
+          config = getConfig
           form.field_with(:name => 'name').value = config["id"]
           form.field_with(:name => 'pass').value = config["password"]
         end.submit
