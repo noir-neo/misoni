@@ -18,5 +18,11 @@ module Misoni
       success = Misoni.auth
       say 'Succeeded', Thor::Shell::Color::GREEN if success
     end
+    
+    desc "version", "Prints the bundler's version information"
+    def version
+      say "misoni #{Misoni::VERSION}"
+    end
+    map %w(-v --version) => :version
   end
 end
