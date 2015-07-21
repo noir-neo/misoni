@@ -15,7 +15,8 @@ module Misoni
     
     desc "auth", "authorize zokei network"
     def auth
-      Misoni.auth
+      success = Misoni.auth
+      say 'Succeeded', Thor::Shell::Color::GREEN if success
     end
   end
 end

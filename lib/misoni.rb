@@ -12,10 +12,12 @@ module Misoni
     Pit.get("http://auth.zokei.ac.jp:16978", :require => { "id"=> "YOUR_UserID", "password"=> "YOUR_PASSWORD" })
   end
   
-  def self.putsResult(page)
+  def self.isSuccess(page)
     body = Nokogiri::HTML(page.body)
     body.css('table tr:nth-child(2) td').each do |child|
-      puts child.text.include?("成功") ? "Succeeded" : "Failed"
+      unless child.text.include?("成功")
+        raise Misoni::Error.new("authentication failed")
+      end
     end
   end
   
@@ -31,7 +33,7 @@ module Misoni
           form.field_with(:name => 'name').value = config["id"]
           form.field_with(:name => 'pass').value = config["password"]
         end.submit
-        putsResult(login_result)
+        isSuccess(login_result)
       end
     rescue SocketError => e
       puts e.message
