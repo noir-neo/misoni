@@ -8,11 +8,11 @@ require 'pit'
 module Misoni
   class Error < StandardError; end
   
-  def self.getConfig
+  def self.config
     Pit.get("http://auth.zokei.ac.jp:16978", :require => { "id"=> "YOUR_UserID", "password"=> "YOUR_PASSWORD" })
   end
   
-  def self.isSuccess(page)
+  def self.success?(page)
     body = Nokogiri::HTML(page.body)
     body.css('table tr:nth-child(2) td').each do |child|
       unless child.text.include?("成功")
@@ -29,11 +29,11 @@ module Misoni
     begin
       agent.get('http://auth.zokei.ac.jp:16978/') do |page|
         login_result = page.form_with(:action => '/cgi-bin/adeflogin.cgi') do |form|
-          config = getConfig
-          form.field_with(:name => 'name').value = config["id"]
-          form.field_with(:name => 'pass').value = config["password"]
+          _config = config
+          form.field_with(:name => 'name').value = _config["id"]
+          form.field_with(:name => 'pass').value = _config["password"]
         end.submit
-        isSuccess(login_result)
+        success?(login_result)
       end
     rescue SocketError => e
       puts e.message

@@ -9,7 +9,7 @@ module Misoni
     
     desc "config", "setting config"
     def config
-      Misoni.getConfig
+      Misoni.config
     end
     
     desc "auth", "authorize zokei network"
