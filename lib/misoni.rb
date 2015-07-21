@@ -12,6 +12,13 @@ module Misoni
     Pit.get("http://auth.zokei.ac.jp:16978", :require => { "id"=> "YOUR_UserID", "password"=> "YOUR_PASSWORD" })
   end
   
+  def self.putsResult(page)
+    body = Nokogiri::HTML(page.body)
+    body.css('table tr:nth-child(2) td').each do |child|
+      p child.text
+    end
+  end
+  
   def self.auth
     agent = Mechanize.new { |agent|
       agent.user_agent_alias = 'Mac Safari'
@@ -24,14 +31,11 @@ module Misoni
           form.field_with(:name => 'name').value = config["id"]
           form.field_with(:name => 'pass').value = config["password"]
         end.submit
-
-        html = Nokogiri::HTML(login_result.body)
-        html.css('table tr:nth-child(2) td').each do |child|
-          p child.text
-        end
+        putsResult(login_result)
       end
     rescue SocketError => e
       puts e.message
     end
   end
+  
 end
