@@ -40,4 +40,8 @@ module Misoni
     end
   end
   
+  def self.in_rbenv?
+    ENV.has_key?('RBENV_ROOT')
+  end
+  
 end
