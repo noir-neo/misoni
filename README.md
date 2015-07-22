@@ -58,3 +58,8 @@ http://www.amazon.co.jp/registry/wishlist/23CDAA2HM4C5B
 The MIT License (MIT)
 
 Copyright (c) 2015 neo
+
+Portions are:  
+Copyright (c) 2012 MATSUOKA Kohei  
+MIT License  
+https://github.com/machu/wifi_login
