@@ -22,8 +22,6 @@ $ gem install misoni
 $ misoni install
 ```
 
-途中、 `sudo` パスワードが求められます。
-
 
 ### 認証のためのIDとパスワードを設定します
 

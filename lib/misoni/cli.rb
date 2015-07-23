@@ -25,8 +25,6 @@ module Misoni
       else
         template "templates/com.neoneobeam.misoni.plist.tt", "#{LAUNCH_AGENT_FILE}"
       end
-      run "sudo chmod 600 #{LAUNCH_AGENT_FILE}"
-      run "sudo chown root #{LAUNCH_AGENT_FILE}"
       run "launchctl load #{LAUNCH_AGENT_FILE}"
       say
       say 'Completed install. Please run `misoni config` or `pit set "http://auth.zokei.ac.jp:16978"` to set your ID/Password.', Thor::Shell::Color::GREEN
